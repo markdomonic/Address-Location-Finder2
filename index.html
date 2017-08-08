@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+  	<meta charset="utf-8">
+
+  	<title>The HTML5 Herald</title>
+
+  	<meta name="description" content="Project XXX">
+  	<meta name="author" content="Mark Ladd">
+
+  	<link rel="stylesheet" type="text/css" href="style.css">
+
+  	<!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  	<![endif]-->
+
+	</head>
+
+
+	<body>
+
+		<!-- Choose API provider -->
+		<!-- <div>
+			<form legend="Hello">
+			<input type="radio" id="API1" name="Address" value="Google GeoCode"></input>
+			<label for="Google">Google GeoCode</label><BR>
+			<input type="radio" id="API2" name="Address" value="getAddress"></input>
+			<label for="getAddress">Get Address IO</label><BR>
+			<BR>
+			API Key
+			<input id="APIKey" type="text" length=40></input>
+		</form>
+		</div> -->
+
+		<BR>
+
+		<!-- Add the input fields and frame -->
+		<div>
+			<form class="location">
+				Post Code<BR>
+				<input id="postcode" class="location" type="text" name="location" pattern="[A-Za-z]{4,10}"></input><BR>
+				House No.<BR>
+				<input id="house" type="text" name="house" required autofocus></input><BR>
+				<input type="button" value="Submit" onclick="getAddress()"></input>
+			<form>
+		</div>
+
+		<BR>
+
+		<div>
+			<form class="Address" >
+				Address:<BR>
+				<input id="addr0" type="text" length="20" readonly></<input><BR>
+				<input id="addr1" type="text" length="20" readonly></<input><BR>
+				<input id="addr2" type="text" length="20" readonly></<input><BR>
+				<input id="addr3" type="text" length="20" readonly></<input><BR>
+				<input id="addr4" type="text" length="20" readonly></<input><BR>
+				<input id="addr5" type="text" length="20" readonly></<input><BR>
+				<input id="addr6" type="text" length="20" readonly></<input><BR>
+				<BR>
+				<input id="latitude" type="text" readonly></input><BR>
+				<input id="Longitude" type="text" readonly></input><BR>
+			<form>
+		</div>
+
+		<BR>
+
+		<div id="map" >
+		</div>
+
+		<!-- Add script here at end of body -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4l-4g4Xj_qj1BolwxMRovvh8QzdeOpQp&callback=showMap" async defer></script>
+  	<script src="main.js"></script>
+
+	</body>
+
+
+</html>

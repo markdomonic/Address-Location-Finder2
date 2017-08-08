@@ -1,0 +1,33 @@
+body {
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 100px;
+  font-size: 13px;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  /*background: #ddd;*/
+  margin: 1 auto;
+  //width: 500px;
+  height: 100px
+  padding: 20px;
+  text-align: left;
+  /* border-radius*/
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow*/
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;*/
+}
