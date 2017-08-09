@@ -90,6 +90,24 @@ function getAddress() {
 function showMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    zoom: 12
   });
+
+  infoWindow = new google.maps.InfoWindow;
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          map.setCenter(pos);
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Address Location->');
+          infoWindow.open(map);
+        });
+      };
+
 }

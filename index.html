@@ -21,6 +21,8 @@
 
 	<body>
 
+
+		<div id="site">
 		<!-- Choose API provider -->
 		<!-- <div>
 			<form legend="Hello">
@@ -32,47 +34,53 @@
 			API Key
 			<input id="APIKey" type="text" length=40></input>
 		</form>
-		</div> -->
-
-		<BR>
-
-		<!-- Add the input fields and frame -->
-		<div>
-			<form class="location">
-				Post Code<BR>
-				<input id="postcode" class="location" type="text" name="location" pattern="[A-Za-z]{4,10}"></input><BR>
-				House No.<BR>
-				<input id="house" type="text" name="house" required autofocus></input><BR>
-				<input type="button" value="Submit" onclick="getAddress()"></input>
-			<form>
 		</div>
+		<BR>-->
 
-		<BR>
+		<div id="locData">
+			<!-- Add the input fields and frame -->
+			<div id="searchAddress">
+				<form class="location">
+					<input id="search" type="button" value="Search" onclick="getAddress()"></input><BR>
+					<label id="labhouse">House No.</label><BR>
+					<input class="textOuput" type="text" name="house"required autofocus></input><BR>
+					Post Code<BR>
+					<input class="textOuput" id="postcode" class="location" type="text" name="location" pattern="[A-Za-z]{4,10}"></input><BR>
+				<form>
+			</div>
 
-		<div>
-			<form class="Address" >
-				Address:<BR>
-				<input id="addr0" type="text" length="20" readonly></<input><BR>
-				<input id="addr1" type="text" length="20" readonly></<input><BR>
-				<input id="addr2" type="text" length="20" readonly></<input><BR>
-				<input id="addr3" type="text" length="20" readonly></<input><BR>
-				<input id="addr4" type="text" length="20" readonly></<input><BR>
-				<input id="addr5" type="text" length="20" readonly></<input><BR>
-				<input id="addr6" type="text" length="20" readonly></<input><BR>
-				<BR>
-				<input id="latitude" type="text" readonly></input><BR>
-				<input id="Longitude" type="text" readonly></input><BR>
-			<form>
-		</div>
+			<BR>
 
-		<BR>
+			<div id="posAddress">
+				<form class="Address" >
+					Address:<BR>
+					<input class="textOuput" id="addr0" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr1" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr2" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr3" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr4" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr5" type="text" length="20" readonly></<input><BR>
+					<input class="textOuput" id="addr6" type="text" length="20" readonly></<input><BR>
+					<BR>
+					Geo Codes:
+					<BR>
+					<input class="textOuput" id="latitude" type="text" readonly></input><BR>
+					<input class="textOuput" id="Longitude" type="text" readonly></input><BR>
+				<form>
+			</div>
+	</div>
 
+<div id="mapContainer">
 		<div id="map" >
 		</div>
+</div>
+
 
 		<!-- Add script here at end of body -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4l-4g4Xj_qj1BolwxMRovvh8QzdeOpQp&callback=showMap" async defer></script>
   	<script src="main.js"></script>
+
+	</div>
 
 	</body>
 
