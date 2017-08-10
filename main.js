@@ -95,7 +95,6 @@ function showMap() {
 
   infoWindow = new google.maps.InfoWindow;
 
-      // Try HTML5 geolocation.
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {

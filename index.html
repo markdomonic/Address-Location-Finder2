@@ -5,16 +5,12 @@
 	<head>
   	<meta charset="utf-8">
 
-  	<title>The HTML5 Herald</title>
+  	<title>Address Location Finder</title>
 
-  	<meta name="description" content="Project XXX">
+  	<meta name="description" content="Address Locaiton Finder">
   	<meta name="author" content="Mark Ladd">
 
   	<link rel="stylesheet" type="text/css" href="style.css">
-
-  	<!--[if lt IE 9]>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  	<![endif]-->
 
 	</head>
 
@@ -37,50 +33,50 @@
 		</div>
 		<BR>-->
 
-		<div id="locData">
-			<!-- Add the input fields and frame -->
-			<div id="searchAddress">
-				<form class="location">
-					<input id="search" type="button" value="Search" onclick="getAddress()"></input><BR>
-					<label id="labhouse">House No.</label><BR>
-					<input class="textOuput" type="text" name="house"required autofocus></input><BR>
-					Post Code<BR>
-					<input class="textOuput" id="postcode" class="location" type="text" name="location" pattern="[A-Za-z]{4,10}"></input><BR>
-				<form>
+			<div id="locData">
+				<!-- Add the input fields and frame -->
+				<div id="searchAddress">
+					<form class="location">
+						<input id="search" type="button" value="Search" onclick="getAddress()"></input><BR>
+						<label id="labhouse">House No.</label><BR>
+						<input id="house" class="textOuput" type="text" name="house" autofocus></input><BR>
+						Post Code<BR>
+						<input class="textOuput" id="postcode" class="location" type="text" name="location" pattern="[A-Za-z]{4,10}"></input><BR>
+					<form>
+				</div>
+
+				<BR>
+
+				<div id="posAddress">
+					<form class="Address" >
+						Address:<BR>
+						<input class="textOuput" id="addr0" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr1" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr2" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr3" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr4" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr5" type="text" length="20" readonly></<input><BR>
+						<input class="textOuput" id="addr6" type="text" length="20" readonly></<input><BR>
+						<BR>
+						Geo Codes:
+						<BR>
+						<input class="textOuput" id="latitude" type="text" readonly></input><BR>
+						<input class="textOuput" id="Longitude" type="text" readonly></input><BR>
+					<form>
+				</div>
 			</div>
 
-			<BR>
-
-			<div id="posAddress">
-				<form class="Address" >
-					Address:<BR>
-					<input class="textOuput" id="addr0" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr1" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr2" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr3" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr4" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr5" type="text" length="20" readonly></<input><BR>
-					<input class="textOuput" id="addr6" type="text" length="20" readonly></<input><BR>
-					<BR>
-					Geo Codes:
-					<BR>
-					<input class="textOuput" id="latitude" type="text" readonly></input><BR>
-					<input class="textOuput" id="Longitude" type="text" readonly></input><BR>
-				<form>
+			<div id="mapContainer">
+					<div id="map" >
+					</div>
 			</div>
-	</div>
 
-<div id="mapContainer">
-		<div id="map" >
+
+			<!-- Add script here at end of body -->
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4l-4g4Xj_qj1BolwxMRovvh8QzdeOpQp&callback=showMap" async defer></script>
+	  	<script src="main.js"></script>
+
 		</div>
-</div>
-
-
-		<!-- Add script here at end of body -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4l-4g4Xj_qj1BolwxMRovvh8QzdeOpQp&callback=showMap" async defer></script>
-  	<script src="main.js"></script>
-
-	</div>
 
 	</body>
 
