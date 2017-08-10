@@ -36,7 +36,7 @@ function getAddress() {
   var response = JSON.parse(xhttp.responseText);
 
   <!-- Did we get a valid address and location back? -->
-  if (response.status = "OK") {
+  if (response.status === "OK") {
     // Unpack the address details and assign to address fields
 
     <!-- Set Location Longitude & Latidue -->
@@ -61,10 +61,9 @@ function getAddress() {
 
     infoWindow = new google.maps.InfoWindow;
 
-
     map.setCenter(pos);
     infoWindow.setPosition(pos);
-    infoWindow.setContent('Address Location->');
+    infoWindow.setContent('Address Location Found');
     infoWindow.open(map);
 
     for (var i = 0; i < response.results[0].address_components.length; i++) {
@@ -72,17 +71,16 @@ function getAddress() {
           var k = "addr" + i;
           var l = '""' + k + '""';
 
-          console.log(k);
             document.getElementById(k).value = response.results[0].address_components[i].long_name;
         }
     }
 
   } else {
     // @TODO Add error message
+    alert("Unable to establish location Address... Try another");
     return; // exit getAddress function
   }
 
-  <!-- If Valid location lets call the MAP API with the latitude and Longitude values -->
 
 
 }
@@ -104,7 +102,7 @@ function showMap() {
 
           map.setCenter(pos);
           infoWindow.setPosition(pos);
-          infoWindow.setContent('Address Location->');
+          infoWindow.setContent('Current Location');
           infoWindow.open(map);
         });
       };
