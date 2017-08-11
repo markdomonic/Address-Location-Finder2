@@ -18,7 +18,9 @@ body {
   padding: 0;
 }*/
 
-
+div {
+  border-style: solid;
+}
 
 #site {
   /*background-color: #ECF1EF;*/
