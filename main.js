@@ -44,30 +44,13 @@ function getAddress() {
     document.getElementById("latitude").value = response.results[0].geometry.location.lat;
 
     <!-- Show locaiton on Map -->
-    // @TODO much of this section is repeated in the showMap function below
-    //       Need to consolidate coding with one function
     var pos = {
       lat: response.results[0].geometry.location.lat,
       lng: response.results[0].geometry.location.lng
     };
+    showMap(pos);
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      // center: {
-      //   lat: response.results[0].geometry.location.lat,
-      //   lng: response.results[0].geometry.location.lng
-      // },
-      zoom: 15,
-      Position: pos,
-      //Content: 'You are here'
-    });
-
-    infoWindow = new google.maps.InfoWindow;
-
-    map.setCenter(pos);
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('Address Location Found');
-    infoWindow.open(map);
-
+    <!-- Output Address fields
     for (var i = 0; i < response.results[0].address_components.length; i++) {
 
       if (i < 7) {
@@ -93,29 +76,64 @@ function getAddress() {
 
 }
 
-function showMap() {
-  // @TODO as above this function should do all the map processing
+function showMap(pos) {
+// Has map and infoWindow been initialised?
 
-  // @TODO think about default currently Auz perhaps just zoom out
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 12
-  });
+  if (pos){
 
-  infoWindow = new google.maps.InfoWindow;
+    if (map){
+    } else {
+      map = new google.maps.Map(document.getElementById('map'), {
+      //   // center: {
+      //   //   lat: response.results[0].geometry.location.lat,
+      //   //   lng: response.results[0].geometry.location.lng
+      //   // },
+      //   zoom: 15,
+      //   Position: pos,
+      //   //Content: 'You are here'
+      });
+    }
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
+    if (infoWindow) {
 
-          map.setCenter(pos);
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Current Location');
-          infoWindow.open(map);
-        });
-      };
+    } else {
+        infoWindow = new google.maps.InfoWindow;
+    }
+
+    // map.setPosition(pos);
+    map.setZoom(15);
+    map.setCenter(pos);
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Address Location Found');
+    infoWindow.open(map);
+
+
+  } else {
+
+
+    // @TODO think about default currently Auz perhaps just zoom out
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 2
+    });
+
+    infoWindow = new google.maps.InfoWindow;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        map.setCenter(pos);
+        map.setZoom(10);
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Current Location');
+        infoWindow.open(map);
+      });
+    };
+
+  }
 
 }
