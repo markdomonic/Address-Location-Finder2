@@ -113,7 +113,7 @@ function showMap(pos) {
 
     // @TODO think about default currently Auz perhaps just zoom out
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
+      center: {lat: 0, lng: 0},
       zoom: 2
     });
 
