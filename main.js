@@ -6,11 +6,12 @@ function getAddress() {
   var house     = document.getElementById("house").value;
 
   <!-- Clear out the output address fields
-  for (var i = 0; i < 7; ++i) {
-    var k = "addr" + i;
-    var l = '""' + k + '""';
-      document.getElementById(k).value = '';
-  }
+  clearAddressFields();
+  // for (var i = 0; i < 7; ++i) {
+  //   var k = "addr" + i;
+  //   var l = '""' + k + '""';
+  //     document.getElementById(k).value = '';
+  // }
 
   <!-- Next we want to build the get address string or we may be able to include the values within it! -->
   var addressURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + postcode + "+" + house + "&key=AIzaSyD4l-4g4Xj_qj1BolwxMRovvh8QzdeOpQp";
@@ -53,17 +54,38 @@ function getAddress() {
     <!-- Output Address fields
     for (var i = 0; i < response.results[0].address_components.length; i++) {
 
-      if (i < 7) {
-        var k = "addr" + i;
+      var k = "addr" + i;
+      var elementExists = document.getElementById(k);
 
-        console.log(i);
-        console.log(k);
+      if (elementExists) {
+      // if (i < 7) {
+      //  var k = "addr" + i;
+
+        //console.log(i);
+        //console.log(k);
 
         document.getElementById(k).value = response.results[0].address_components[i].long_name;
       } else {
         // @TODO Didn't consider address_components could be longer than 6 fields! HTML fields only hold 6 lines!
         //       Could add dynamic fields into DOM would be a good exercise, consider impact of UX on screen fields
+
+        // var elementExists = document.getElementById(k);
+        // if (elementExists) {
+
+        // } else {
+          var k2 = "addr" + (i - 1);
+          var newElement2 = document.getElementById(k2).cloneNode(true);
+          newElement2.setAttribute('id', k);
+
+          document.getElementById('addrLine').appendChild(newElement2);
+          document.getElementById('addrLine').appendChild(document.createElement("br"));
+          document.getElementById(k).value = response.results[0].address_components[i].long_name;
+        // }
       }
+
+      console.log(i);
+      console.log(k);
+
     }
 
   } else {
@@ -136,4 +158,18 @@ function showMap(pos) {
 
   }
 
+}
+
+function clearAddressFields() {
+  // Clear out all the address line fields
+  // Can we simply loop around the addrLine children?
+  var child = document.getElementById('addrLine');
+
+  for (i=0; i<child.childElementCount; i++){
+    var childValue = document.getElementById(child.children[i].id); //.value = "";
+        if (childValue) {
+          console.log(childValue.value);
+          childValue.value = "";
+        }
+  }
 }
